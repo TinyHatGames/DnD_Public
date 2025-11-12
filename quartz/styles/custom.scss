@@ -1,8 +1,6 @@
-@use "./base.scss";
-
-// put your custom CSS here!
-
 /* ---------- ITS-style parchment look ---------- */
+
+@import "./base.scss"; /* keep Quartz defaults, then override */
 
 :root {
   /* Background & text */
