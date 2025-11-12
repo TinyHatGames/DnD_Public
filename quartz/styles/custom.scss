@@ -1,3 +1,90 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+/* ---------- ITS-style parchment look ---------- */
+
+:root {
+  /* Background & text */
+  --light-bg: #f9f4e7;
+  --light-text: #2b1b0f;
+  --dark-bg: #1a1208;
+  --dark-text: #f3e9c6;
+
+  /* Accents (deep red / burgundy) */
+  --accent: #7a1e1e;
+  --accent-hover: #a12b2b;
+  --link-color: var(--accent);
+  --link-hover: var(--accent-hover);
+
+  /* Borders, callouts, and parchment tone */
+  --border-color: #d8c7a1;
+  --code-bg: #f3ebd5;
+  --blockquote-bg: #f7f1df;
+  --selection: #e0cda0;
+
+  /* Font stack */
+  --font-body: "Libre Baskerville", "Georgia", serif;
+  --font-header: "IM Fell English SC", "Garamond", serif;
+}
+
+body {
+  background-color: var(--light-bg);
+  background-image: url("https://i.imgur.com/7pXrxZ3.png"); /* subtle parchment texture */
+  background-repeat: repeat;
+  color: var(--light-text);
+  font-family: var(--font-body);
+}
+
+.dark body {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+  background-image: url("https://i.imgur.com/TIKT5Xy.png"); /* darker parchment */
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+a:hover {
+  color: var(--link-hover);
+  border-bottom: 1px solid var(--accent-hover);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  color: var(--accent);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.1em;
+  margin-top: 1.2em;
+}
+
+blockquote {
+  background: var(--blockquote-bg);
+  border-left: 4px solid var(--accent);
+  padding: 0.6em 1em;
+  font-style: italic;
+}
+
+code, pre {
+  background: var(--code-bg);
+  border-radius: 4px;
+  padding: 0.1em 0.3em;
+  font-family: "Courier New", monospace;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 1.5em 0;
+}
+
+/* Small “scroll to top” / footer accent */
+footer {
+  font-family: var(--font-header);
+  color: var(--accent);
+  opacity: 0.8;
+}
