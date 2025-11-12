@@ -28,7 +28,7 @@
 
 body {
   background-color: var(--light-bg);
-  background-image: url("https://i.imgur.com/7pXrxZ3.png"); /* subtle parchment texture */
+  //background-image: url("https://i.imgur.com/7pXrxZ3.png"); /* subtle parchment texture */
   background-repeat: repeat;
   color: var(--light-text);
   font-family: var(--font-body);
@@ -37,7 +37,7 @@ body {
 .dark body {
   background-color: var(--dark-bg);
   color: var(--dark-text);
-  background-image: url("https://i.imgur.com/TIKT5Xy.png"); /* darker parchment */
+  //background-image: url("https://i.imgur.com/TIKT5Xy.png"); /* darker parchment */
 }
 
 a {
