@@ -1,3 +1,86 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
-// put your custom CSS here!
+// The ITS theme is downloaded during the GitHub Pages build and reintroduces
+// user-select: none on some content elements. Keep selection enabled after it loads.
+:root,
+:root * {
+  user-select: auto !important;
+}
+
+// Keep the Explorer header fully visible when the desktop tree is collapsed.
+// The stock 1.2rem flex basis clips the label, especially with the dark theme font rendering.
+@media all and not ($mobile) {
+  .explorer {
+    min-height: 0;
+
+    &:not(.collapsed) {
+      flex: 1 1 auto;
+    }
+
+    &.collapsed {
+      flex: 0 0 auto;
+      min-height: 1.5rem;
+      overflow: visible;
+
+      & > .explorer-content {
+        display: none;
+      }
+    }
+  }
+}
+
+.explorer .explorer-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+// Use the tree itself as the sole scroll container and keep its scrollbar visible.
+.explorer-ul.overflow {
+  box-sizing: border-box;
+  min-height: 0;
+  max-height: 100%;
+  padding-right: 0.35rem;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-color: var(--gray) var(--light);
+  scrollbar-gutter: stable;
+  scrollbar-width: auto;
+
+  // The generic overflow fade also masks the scrollbar, so disable it for the Explorer only.
+  &.gradient-active {
+    mask-image: none;
+  }
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--light);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--gray);
+    border: 3px solid var(--light);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--secondary);
+  }
+}
+
+:root[saved-theme="dark"] .explorer.collapsed > .explorer-toggle {
+  color: var(--dark);
+  opacity: 1;
+
+  & .fold {
+    color: var(--secondary);
+    opacity: 1;
+  }
+}

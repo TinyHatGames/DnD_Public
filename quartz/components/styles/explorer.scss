@@ -158,7 +158,6 @@ button.desktop-explorer {
   flex-direction: row;
   display: flex;
   align-items: center;
-  user-select: none;
 
   & div > a {
     color: var(--secondary);
